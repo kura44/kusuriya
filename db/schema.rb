@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_14_013135) do
+ActiveRecord::Schema.define(version: 2023_11_14_021701) do
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "maomao_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["maomao_id"], name: "index_likes_on_maomao_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
 
   create_table "maomaos", force: :cascade do |t|
     t.integer "userid"
@@ -27,6 +36,7 @@ ActiveRecord::Schema.define(version: 2023_11_14_013135) do
     t.string "color5"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,4 +51,6 @@ ActiveRecord::Schema.define(version: 2023_11_14_013135) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "likes", "maomaos"
+  add_foreign_key "likes", "users"
 end

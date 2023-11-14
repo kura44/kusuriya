@@ -1,7 +1,13 @@
 <h3>一覧ページ index.html.erb</h3>
+
+<%#= ページネーション %>
+<%= page_entries_info @maomaos %>
+<%= paginate @maomaos %>
+
 <div class="maomaos-container">
     <% @maomaos.each do |t| %>
     <div class="maomao">
+        <%= t.user.email %>
         <%= t.userid %>
         <%= t.postid %>
         <%= t.itemid1 %>
@@ -14,6 +20,21 @@
         <%= t.color4 %>
         <%= t.itemid5 %>
         <%= t.color5 %>
+
+        <% if user_signed_in? %>
+            <% if current_user.already_liked?(t) %>
+                <%= button_to maomao_like_path(id: t.id, maomao_id: t.id), method: :delete do %>
+                    <i class="fas fa-heart fa-2x" style="color:red;"></i><%= t.likes.count %>
+                <% end %>
+            <% else %>
+                <%= button_to maomao_likes_path(id: t.id, maomao_id: t.id), method: :post do %>
+                    <i class="fas fa-heart fa-2x" style="color:red;"></i><%= t.likes.count %>
+                <% end %>
+            <% end %>
+        <% else %>
+            <i class="fas fa-heart fa-2x" style="color:red;"><%= t.likes.count %>
+        <% end %>
+
         <%= link_to "詳細", maomao_path(t.id) %>
         <%= link_to "編集", edit_maomao_path(t.id) %>
         <%= button_to "削除", maomao_path(t.id), method: :delete %>

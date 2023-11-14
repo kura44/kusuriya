@@ -4,6 +4,8 @@ class MaomaosController < ApplicationController
 
     def index
         @maomaos = Maomao.all
+        #1ページあたりの表示する投稿の数
+        @maomaos = @maomaos.page(params[:page]).per(3)
     end
     def new
         @maomao = Maomao.new
@@ -11,6 +13,7 @@ class MaomaosController < ApplicationController
     
     def create
         maomao = Maomao.new(maomao_params)
+        maomao.user_id = current_user.id
         if maomao.save!
             redirect_to :action => "index"
         else
