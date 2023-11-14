@@ -12,7 +12,7 @@
     <%= link_to "編集", edit_user_registration_path %>
 <% end %>
 
-<h2>ユーザーの投稿一覧</h2>
+<h3>ユーザーの投稿一覧</h3>
 <% @user.maomaos.each do |t| %>
         <%= t.userid %>
         <%= t.postid %>
@@ -26,10 +26,11 @@
         <%= t.color4 %>
         <%= t.itemid5 %>
         <%= t.color5 %>
+        <%= t.created_at %>
 <% end %>
 
 <!-- 以下はいいね機能を実装している場合-->
-<h2>ユーザーがいいねした投稿一覧</h2>
+<h3>ユーザーがいいねした投稿一覧</h3>
         <% @user.liked_maomaos.each do |t| %>
         <%= t.userid %>
         <%= t.postid %>

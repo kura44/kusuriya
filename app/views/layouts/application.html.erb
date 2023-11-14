@@ -14,21 +14,26 @@
   </head>
   
   <header>
-    <h3>
-      <%= link_to 'トップページ', maomaos_path %>
-      <%= link_to '新規作成', new_maomao_path %>
-    </h3>
+    <div class="header-name">
+      <ul>
+          <li><%= image_tag "logo.PNG" ,class:"header_logo"%></li>
+          <li><p>服選び</p></li>
+          <li><p><%= current_user.name %></p></li>
+    </div>
     <div class="header-list">
       <ul>
+          <li><%= link_to '一覧', maomaos_path %></li>
+          <li><%= link_to '新規作成', new_maomao_path %></li>
         <% if user_signed_in? %>
-          <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
           <li><%= link_to "マイページへ", user_path(current_user.id) %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "新規登録", new_user_registration_path %></li>
           <li><%= link_to "ログイン", new_user_session_path %></li>
         <% end %>
       </ul>
     </div>
+  </header>
 
   <body>
     <%= yield %>

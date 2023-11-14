@@ -14,19 +14,22 @@
     <%= @maomao.color4 %>
     <%= @maomao.itemid5 %>
     <%= @maomao.color5 %>
+    <%= @maomao.user_id %>
         
     <% if user_signed_in? %>
         <% if current_user.already_liked?(@maomao) %>
             <%= button_to maomao_like_path(@maomao), method: :delete do %>
-                <i class="fas fa-heart fa-2x" style="color:red;"></i><%= @maomao.likes.count %>
+                <i class="fas fa-heart fa-1x" style="color:red;"></i><%= @maomao.likes.count %>
             <% end %>
         <% else %>
             <%= button_to maomao_likes_path(@maomao), method: :post do %>
-                <i class="fas fa-heart fa-2x" style="color:red;"></i><%= @maomao.likes.count %>
+                <i class="fas fa-heart fa-1x" style="color:red;"></i><%= @maomao.likes.count %>
             <% end %>
         <% end %>
 
     <% else %>
-        <i class="fas fa-heart fa-2x" style="color:red;"></i><%= @maomao.likes.count %>
+        <i class="fas fa-heart fa-1x" style="color:red;"></i><%= @maomao.likes.count %>
     <% end %>
+
+    <%= link_to "ユーザー情報", user_path(@maomao.user_id) %>
 </div>

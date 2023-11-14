@@ -20,32 +20,30 @@
         <%= t.color4 %>
         <%= t.itemid5 %>
         <%= t.color5 %>
+        <%= link_to "詳細", maomao_path(t.id) %>
 
         <% if user_signed_in? %>
             <% if current_user.already_liked?(t) %>
                 <%= button_to maomao_like_path(id: t.id, maomao_id: t.id), method: :delete do %>
-                    <i class="fas fa-heart fa-2x" style="color:red;"></i><%= t.likes.count %>
+                    <i class="fas fa-heart fa-1x" style="color:red;"></i><%= t.likes.count %>
                 <% end %>
             <% else %>
                 <%= button_to maomao_likes_path(id: t.id, maomao_id: t.id), method: :post do %>
-                    <i class="fas fa-heart fa-2x" style="color:red;"></i><%= t.likes.count %>
+                    <i class="fas fa-heart fa-1x" style="color:red;"></i><%= t.likes.count %>
                 <% end %>
             <% end %>
 
             <% if current_user.id == t.user_id %>
                 <%= link_to "編集", edit_maomao_path(t.id) %>
-                <%= link_to "詳細", maomao_path(t.id) %>
                 <%= button_to "削除", maomao_path(t.id), method: :delete %>
             <% elsif current_user.admin? %>
                 <%= link_to "管理者用編集", edit_maomao_path(t.id) %>
                 <%= link_to "管理者用削除", maomao_path(t.id), method: :delete %>
-            <% else %>
-                <%= link_to "詳細", maomao_path(t.id) %>
             <% end %>
 
         <% else %>
-            <i class="fas fa-heart fa-2x" style="color:red;"></i><%= t.likes.count %>
-            <%= link_to "詳細", maomao_path(t.id) %>
+            <i class="fas fa-heart fa-1x" style="color:red;"></i><%= t.likes.count %>
+            
         <% end %>
 
     </div>
