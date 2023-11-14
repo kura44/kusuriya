@@ -7,11 +7,12 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   
+  root 'welcomes#index'
 
   resources :users, only: [:show, :index] 
 
   resources :maomaos do
     resources :likes, only: [:create, :destroy]
   end
-  root 'maomaos#index'
+
 end
