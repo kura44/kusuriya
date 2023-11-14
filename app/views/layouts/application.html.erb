@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kusuriya</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+  <header>
+    <h3>
+      <%= link_to 'トップページ', maomaos_path %>
+      <%= link_to '新規作成', new_maomao_path %>
+    </h3>
+    <div class="header-list">
+      <ul>
+        <% if user_signed_in? %>
+          <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "新規登録", new_user_registration_path %></li>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+    
+  <body>
+    <%= yield %>
+  </body>
+</html>

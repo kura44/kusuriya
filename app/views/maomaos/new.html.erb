@@ -1,0 +1,19 @@
+<h3>作成ページ new.html.erb</h3>
+
+<%= form_for @maomao do |f| %>
+    <div class="field">
+        <%= f.number_field :userid, :size => 30 %>
+        <%= f.number_field :postid, :size => 30 %>
+        <%= f.text_field :itemid1, :size => 100 %>
+        <%= f.text_field :color1, :size => 100 %>
+        <%= f.text_field :itemid2, :size => 100 %>
+        <%= f.text_field :color2, :size => 100 %>
+        <%= f.text_field :itemid3, :size => 100 %>
+        <%= f.text_field :color3, :size => 100 %>
+        <%= f.text_field :itemid4, :size => 100 %>
+        <%= f.text_field :color4, :size => 100 %>
+        <%= f.text_field :itemid5, :size => 100 %>
+        <%= f.text_field :color5, :size => 100 %>
+        <%= f.submit "投稿" %>
+    </div>
+<% end %>

@@ -1,0 +1,2 @@
+class Maomao < ApplicationRecord
+end

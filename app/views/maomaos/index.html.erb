@@ -1,0 +1,22 @@
+<h3>一覧ページ index.html.erb</h3>
+<div class="maomaos-container">
+    <% @maomaos.each do |t| %>
+    <div class="maomao">
+        <%= t.userid %>
+        <%= t.postid %>
+        <%= t.itemid1 %>
+        <%= t.color1 %>
+        <%= t.itemid2 %>
+        <%= t.color2 %>
+        <%= t.itemid3 %>
+        <%= t.color3 %>
+        <%= t.itemid4 %>
+        <%= t.color4 %>
+        <%= t.itemid5 %>
+        <%= t.color5 %>
+        <%= link_to "詳細", maomao_path(t.id) %>
+        <%= link_to "編集", edit_maomao_path(t.id) %>
+        <%= button_to "削除", maomao_path(t.id), method: :delete %>
+    </div>
+    <% end %>
+</div>
