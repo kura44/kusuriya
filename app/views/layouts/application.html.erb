@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <%#= いいねアイコンの実装 %>
     <script src="https://kit.fontawesome.com/7e8da480b8.js" crossorigin="anonymous"></script>
 
@@ -22,6 +22,7 @@
       <ul>
         <% if user_signed_in? %>
           <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "マイページへ", user_path(current_user.id) %></li>
         <% else %>
           <li><%= link_to "新規登録", new_user_registration_path %></li>
           <li><%= link_to "ログイン", new_user_session_path %></li>

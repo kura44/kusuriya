@@ -1,18 +1,19 @@
 <h3>詳細ページ show.html.erb</h3>
 
 <div class="maomao">
-        <%= @maomao.userid %>
-        <%= @maomao.postid %>
-        <%= @maomao.itemid1 %>
-        <%= @maomao.color1 %>
-        <%= @maomao.itemid2 %>
-        <%= @maomao.color2 %>
-        <%= @maomao.itemid3 %>
-        <%= @maomao.color3 %>
-        <%= @maomao.itemid4 %>
-        <%= @maomao.color4 %>
-        <%= @maomao.itemid5 %>
-        <%= @maomao.color5 %>
+    <%= @maomao.user.email %>
+    <%= @maomao.userid %>
+    <%= @maomao.postid %>
+    <%= @maomao.itemid1 %>
+    <%= @maomao.color1 %>
+    <%= @maomao.itemid2 %>
+    <%= @maomao.color2 %>
+    <%= @maomao.itemid3 %>
+    <%= @maomao.color3 %>
+    <%= @maomao.itemid4 %>
+    <%= @maomao.color4 %>
+    <%= @maomao.itemid5 %>
+    <%= @maomao.color5 %>
         
     <% if user_signed_in? %>
         <% if current_user.already_liked?(@maomao) %>

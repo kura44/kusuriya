@@ -1,0 +1,45 @@
+<h3>マイページ user.show.html.erb</h3>
+
+<p>名前 : <%= @user.name %></p>
+<p>メールアドレス : <%= @user.email %></p>
+<p>プロフィール : <%= @user.profile %></p>
+
+<% if current_user.id == @user.id %>
+  <%= link_to "編集", edit_user_registration_path %>
+<% end %>
+
+<h2>ユーザーの投稿一覧</h2>
+<% @user.maomaos.each do |t| %>
+        <%= t.userid %>
+        <%= t.postid %>
+        <%= t.itemid1 %>
+        <%= t.color1 %>
+        <%= t.itemid2 %>
+        <%= t.color2 %>
+        <%= t.itemid3 %>
+        <%= t.color3 %>
+        <%= t.itemid4 %>
+        <%= t.color4 %>
+        <%= t.itemid5 %>
+        <%= t.color5 %>
+<% end %>
+
+<!-- 以下はいいね機能を実装している場合-->
+<h2>ユーザーがいいねした投稿一覧</h2>
+        <% @user.liked_maomaos.each do |t| %>
+        <%= t.userid %>
+        <%= t.postid %>
+        <%= t.itemid1 %>
+        <%= t.color1 %>
+        <%= t.itemid2 %>
+        <%= t.color2 %>
+        <%= t.itemid3 %>
+        <%= t.color3 %>
+        <%= t.itemid4 %>
+        <%= t.color4 %>
+        <%= t.itemid5 %>
+        <%= t.color5 %>
+<% end %>
+<!-- ここまで-->
+
+<%= link_to "一覧", maomaos_path %>
