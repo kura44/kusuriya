@@ -36,6 +36,9 @@
                 <%= link_to "編集", edit_maomao_path(t.id) %>
                 <%= link_to "詳細", maomao_path(t.id) %>
                 <%= button_to "削除", maomao_path(t.id), method: :delete %>
+            <% elsif current_user.admin? %>
+                <%= link_to "管理者用編集", edit_maomao_path(t.id) %>
+                <%= link_to "管理者用削除", maomao_path(t.id), method: :delete %>
             <% else %>
                 <%= link_to "詳細", maomao_path(t.id) %>
             <% end %>
