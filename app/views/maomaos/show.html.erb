@@ -1,4 +1,4 @@
-<h3>詳細ページ show.html.erb</h3>
+<h3>詳細ページ maomaos/show.html.erb maomao_path</h3>
 
 <div class="maomao">
     <%= @maomao.user.email %>
@@ -15,7 +15,12 @@
     <%= @maomao.itemid5 %>
     <%= @maomao.color5 %>
     <%= @maomao.user_id %>
-        
+
+    <% if current_user.id == @maomao.user_id %>
+                <%= link_to "編集", edit_maomao_path(@maomao) %>
+                <%= button_to "削除", maomao_path(@maomao), method: :delete %>
+    <% end %>
+
     <% if user_signed_in? %>
         <% if current_user.already_liked?(@maomao) %>
             <%= button_to maomao_like_path(@maomao), method: :delete do %>

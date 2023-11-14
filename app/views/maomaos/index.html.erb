@@ -1,4 +1,4 @@
-<h3>一覧ページ index.html.erb</h3>
+<h3>一覧ページ maomaos/index.html.erb maomaos_path</h3>
 
 <%#= ページネーション %>
 <%= page_entries_info @maomaos %>
@@ -33,10 +33,7 @@
                 <% end %>
             <% end %>
 
-            <% if current_user.id == t.user_id %>
-                <%= link_to "編集", edit_maomao_path(t.id) %>
-                <%= button_to "削除", maomao_path(t.id), method: :delete %>
-            <% elsif current_user.admin? %>
+            <% if current_user.admin? %>
                 <%= link_to "管理者用編集", edit_maomao_path(t.id) %>
                 <%= link_to "管理者用削除", maomao_path(t.id), method: :delete %>
             <% end %>

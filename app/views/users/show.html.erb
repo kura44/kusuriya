@@ -1,7 +1,6 @@
-<h3>マイページ user.show.html.erb</h3>
+<h3>プロフィール users/show.html.erb user_path</h3>
 
 <p>名前 : <%= @user.name %></p>
-<p>メールアドレス : <%= @user.email %></p>
 <p>プロフィール : <%= @user.profile %></p>
 
 <% if current_user.admin? %>
@@ -9,6 +8,7 @@
 <% end %>
 
 <% if current_user.id == @user.id %>
+    <p>メールアドレス : <%= @user.email %></p>
     <%= link_to "編集", edit_user_registration_path %>
 <% end %>
 
@@ -27,6 +27,7 @@
         <%= t.itemid5 %>
         <%= t.color5 %>
         <%= t.created_at %>
+        <%= link_to "詳細", maomao_path(t.id) %>
 <% end %>
 
 <!-- 以下はいいね機能を実装している場合-->
@@ -44,7 +45,6 @@
         <%= t.color4 %>
         <%= t.itemid5 %>
         <%= t.color5 %>
+        <%= link_to "詳細", maomao_path(t.id) %>
 <% end %>
 <!-- ここまで-->
-
-<%= link_to "一覧", maomaos_path %>

@@ -5,7 +5,7 @@ class MaomaosController < ApplicationController
     def index
         @maomaos = Maomao.all
         #1ページあたりの表示する投稿の数
-        @maomaos = @maomaos.page(params[:page]).per(3)
+        @maomaos = @maomaos.page(params[:page]).per(5)
     end
     def new
         @maomao = Maomao.new
