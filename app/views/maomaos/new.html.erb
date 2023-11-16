@@ -1,6 +1,7 @@
 <h3>作成ページ maomaos/new.html.erb new_maomao_path</h3>
 <h1>ここでアイテムと色選択して作る</h1>
 
+<%#= @maomaoに以下の情報を入力 %>
 <%= form_for @maomao do |f| %>
     <div class="field">
         <%= f.number_field :userid, :size => 30 %>
@@ -15,6 +16,7 @@
         <%= f.text_field :color4, :size => 100 %>
         <%= f.text_field :itemid5, :size => 100 %>
         <%= f.text_field :color5, :size => 100 %>
+        <%#= f.submitの遷移先はcreateアクション %>
         <%= f.submit "投稿" %>
     </div>
 <% end %>

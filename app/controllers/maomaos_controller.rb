@@ -1,33 +1,38 @@
 class MaomaosController < ApplicationController
 
     before_action :authenticate_user!, only: [:create]
-
+    
     def index
         @maomaos = Maomao.all
         #1ページあたりの表示する投稿の数
         @maomaos = @maomaos.page(params[:page]).per(5)
     end
+    
     def new
         @maomao = Maomao.new
     end
     
     def create
         maomao = Maomao.new(maomao_params)
+        #ログインしている時
         maomao.user_id = current_user.id
         if maomao.save!
+            #indexアクションを実行
             redirect_to :action => "index"
         else
+            #nemアクションを実行
             redirect_to :action => "new"
         end
     end
+    
     def show
         @maomao = Maomao.find(params[:id])
     end
-
+    
     def edit
         @maomao = Maomao.find(params[:id])
     end
-
+    
     def update
         maomao = Maomao.find(params[:id])
         if maomao.update(maomao_params)
@@ -36,15 +41,16 @@ class MaomaosController < ApplicationController
             redirect_to :action => "new"
         end
     end
-
+    
     def destroy
         maomao = Maomao.find(params[:id])
         maomao.destroy
         redirect_to action: :index
     end
-    
+
     private
     def maomao_params
         params.require(:maomao).permit(:userid, :postid, :itemid1, :color1, :itemid2, :color2, :itemid3, :color3, :itemid4, :color4, :itemid5, :color5)
     end
+
 end

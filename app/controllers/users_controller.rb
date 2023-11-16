@@ -10,11 +10,16 @@ class UsersController < ApplicationController
     end
 
     private
+    #管理者(admin)権限
     def user_admin
         @users = User.all
+        #ログインしているユーザーが管理者ならば
         if  current_user.admin == true
+            #indexアクションを実行
             render action: "index"
+        #それ以外の場合は
         else
+            #トップページへ戻る
             redirect_to root_path
         end
     end

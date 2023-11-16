@@ -6,44 +6,49 @@
 <%= paginate @maomaos %>
 
 <div class="maomaos-container">
+    <%#= @maomaosのid:tのレコード情報を取得、t=1,2,~ %>
     <% @maomaos.each do |t| %>
-    <div class="maomao">
-        <%= t.user.email %>
-        <%= t.userid %>
-        <%= t.postid %>
-        <%= t.itemid1 %>
-        <%= t.color1 %>
-        <%= t.itemid2 %>
-        <%= t.color2 %>
-        <%= t.itemid3 %>
-        <%= t.color3 %>
-        <%= t.itemid4 %>
-        <%= t.color4 %>
-        <%= t.itemid5 %>
-        <%= t.color5 %>
-        <%= link_to "詳細", maomao_path(t.id) %>
-
-        <% if user_signed_in? %>
-            <% if current_user.already_liked?(t) %>
-                <%= button_to maomao_like_path(id: t.id, maomao_id: t.id), method: :delete do %>
-                    <i class="fas fa-heart fa-1x" style="color:red;"></i><%= t.likes.count %>
-                <% end %>
-            <% else %>
-                <%= button_to maomao_likes_path(id: t.id, maomao_id: t.id), method: :post do %>
-                    <i class="fas fa-heart fa-1x" style="color:red;"></i><%= t.likes.count %>
-                <% end %>
-            <% end %>
-
-            <% if current_user.admin? %>
-                <%= link_to "管理者用編集", edit_maomao_path(t.id) %>
-                <%= link_to "管理者用削除", maomao_path(t.id), method: :delete %>
-            <% end %>
-
-        <% else %>
-            <i class="fas fa-heart fa-1x" style="color:red;"></i><%= t.likes.count %>
+        <div class="maomao">
+            <%= t.user.email %>
+            <%= t.userid %>
+            <%= t.postid %>
+            <%= t.itemid1 %>
+            <%= t.color1 %>
+            <%= t.itemid2 %>
+            <%= t.color2 %>
+            <%= t.itemid3 %>
+            <%= t.color3 %>
+            <%= t.itemid4 %>
+            <%= t.color4 %>
+            <%= t.itemid5 %>
+            <%= t.color5 %>
+            <%= link_to "詳細", maomao_path(t.id) %>
             
-        <% end %>
+            <%#= ログインされていれば %>
+            <% if user_signed_in? %>
+                <%#= すでにいいねされている場合 %>
+                <% if current_user.already_liked?(t) %>
+                    <%= button_to maomao_like_path(id: t.id, maomao_id: t.id), method: :delete do %>
+                        <%#= いいねボタンのカスタム %>
+                        <i class="fas fa-heart fa-1x" style="color:red;"></i><%= t.likes.count %>
+                    <% end %>
+                <%#= いいねされていない場合 %>
+                <% else %>
+                    <%= button_to maomao_likes_path(id: t.id, maomao_id: t.id), method: :post do %>
+                        <i class="fas fa-heart fa-1x" style="color:red;"></i><%= t.likes.count %>
+                    <% end %>
+                <% end %>
 
-    </div>
+                <% if current_user.admin? %>
+                    <%= link_to "管理者用編集", edit_maomao_path(t.id) %>
+                    <%= link_to "管理者用削除", maomao_path(t.id), method: :delete %>
+                <% end %>
+
+            <% else %>
+                <i class="fas fa-heart fa-1x" style="color:red;"></i><%= t.likes.count %>
+                
+            <% end %>
+
+        </div>
     <% end %>
 </div>
