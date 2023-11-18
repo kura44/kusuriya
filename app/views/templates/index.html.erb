@@ -1,0 +1,13 @@
+<h3>テンプレート一覧 templates/index.html.erb templates_path</h3>
+<h1>作成したテンプレートが見れる</h1>
+
+<div class="templates-container">
+    <% @templates.each do |t| %>
+        <div class="template">
+            <%= t.name %>
+            <%= image_tag t.image_url, size: "250x200" if t.image? %>
+        </div>
+    <% end %>
+</div>
+
+<%= link_to '新規作成',new_template_path %>

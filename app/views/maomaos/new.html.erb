@@ -4,18 +4,36 @@
 <%#= @maomaoに以下の情報を入力 %>
 <%= form_for @maomao do |f| %>
     <div class="field">
-        <%= f.number_field :userid, :size => 30 %>
-        <%= f.number_field :postid, :size => 30 %>
-        <%= f.text_field :itemid1, :size => 100 %>
-        <%= f.text_field :color1, :size => 100 %>
-        <%= f.text_field :itemid2, :size => 100 %>
-        <%= f.text_field :color2, :size => 100 %>
-        <%= f.text_field :itemid3, :size => 100 %>
-        <%= f.text_field :color3, :size => 100 %>
-        <%= f.text_field :itemid4, :size => 100 %>
-        <%= f.text_field :color4, :size => 100 %>
-        <%= f.text_field :itemid5, :size => 100 %>
-        <%= f.text_field :color5, :size => 100 %>
+        <%= f.label :userid, 'USER_ID' %>
+        <%= f.number_field :userid, :size => 30 %><br>
+        <%= f.label :postid, 'POST_ID' %>
+        <%= f.number_field :postid, :size => 30 %><br>
+
+        <%= f.label :itemid1 %>
+        <%= f.select :itemid1, [["半袖","1"],["長袖","2"],["七分袖","3"]], include_blank: "選択してください", :size => 100 %><br>
+        <%= f.label :color1 %>
+        <%= f.text_field :color1, :size => 100 %><br>
+
+        <%= f.label :itemid2 %>
+        <%= f.text_field :itemid2, :size => 100 %><br>
+        <%= f.label :color2 %>
+        <%= f.text_field :color2, :size => 100 %><br>
+
+        <%= f.label :itemid3 %>
+        <%= f.text_field :itemid3, :size => 100 %><br>
+        <%= f.label :color3 %>
+        <%= f.text_field :color3, :size => 100 %><br>
+
+        <%= f.label :itemid4 %>
+        <%= f.text_field :itemid4, :size => 100 %><br>
+        <%= f.label :color4 %>
+        <%= f.text_field :color4, :size => 100 %><br>
+
+        <%= f.label :itemid5 %>
+        <%= f.text_field :itemid5, :size => 100 %><br>
+        <%= f.label :color5 %>
+        <%= f.text_field :color5, :size => 100 %><br>
+        
         <%#= f.submitの遷移先はcreateアクション %>
         <%= f.submit "投稿" %>
     </div>

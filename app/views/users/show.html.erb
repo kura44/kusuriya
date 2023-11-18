@@ -5,7 +5,7 @@
 <p>プロフィール : <%= @user.profile %></p>
 
 <% if current_user.admin? %>
-        <%= link_to "管理者権限", users_path(@user.id) %>
+        <%= link_to "管理者権限", templates_path %>
 <% end %>
 
 <% if current_user.id == @user.id %>
