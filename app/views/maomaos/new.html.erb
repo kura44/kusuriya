@@ -4,34 +4,90 @@
 <%#= @maomaoに以下の情報を入力 %>
 <%= form_for @maomao do |f| %>
     <div class="field">
-        <%= f.label :userid, 'USER_ID' %>
-        <%= f.number_field :userid, :size => 30 %><br>
-        <%= f.label :postid, 'POST_ID' %>
-        <%= f.number_field :postid, :size => 30 %><br>
+        <%#= f.label :userid, 'USER_ID' %>
+        <%#= f.number_field :userid, :size => 30 %><br>
+        <%#= f.label :postid, 'POST_ID' %>
+        <%#= f.number_field :postid, :size => 30 %><br>
 
-        <%= f.label :itemid1 %>
-        <%= f.select :itemid1, [["半袖","1"],["長袖","2"],["七分袖","3"]], include_blank: "選択してください", :size => 100 %><br>
-        <%= f.label :color1 %>
+        <%#= 頭 %>
+        <%#= サンプル表示 %>
+        <div class="templates-container">
+            <% @item1.each do |t| %>
+                <div class="template">
+                    <%= image_tag t.image_url, size: "100x100" if t.image? %>
+                    <%= t.name %>
+                </div>
+            <% end %>
+        </div>
+        <br><br><br><br><br><br>
+        <%= f.label :ヘアアクセサリー %>
+        <%#= f.select :itemid1, options_for_select(@templates.map{|c|[c[:name], c[:id]]}), {}, {} %>
+        <%= f.collection_select :itemid1, @item1, :name, :name, include_blank: "選択して下さい" %><br>
+        <%= f.label :色 %>
         <%= f.text_field :color1, :size => 100 %><br>
 
-        <%= f.label :itemid2 %>
-        <%= f.text_field :itemid2, :size => 100 %><br>
-        <%= f.label :color2 %>
+        <%#= 上 %>
+        <%#= サンプル表示 %>
+        <div class="templates-container">
+            <% @item2.each do |t| %>
+                <div class="template">
+                    <%= image_tag t.image_url, size: "100x100" if t.image? %>
+                    <%= t.name %>
+                </div>
+            <% end %>
+        </div>
+        <br><br><br><br><br><br>
+        <%= f.label :トップス %>
+        <%= f.collection_select :itemid2, @item2, :name, :name, include_blank: "選択して下さい" %><br>
+        <%= f.label :色 %>
         <%= f.text_field :color2, :size => 100 %><br>
 
-        <%= f.label :itemid3 %>
-        <%= f.text_field :itemid3, :size => 100 %><br>
-        <%= f.label :color3 %>
+        <%#= 下 %>
+        <%#= サンプル表示 %>
+        <div class="templates-container">
+            <% @item3.each do |t| %>
+                <div class="template">
+                    <%= image_tag t.image_url, size: "100x100" if t.image? %>
+                    <%= t.name %>
+                </div>
+            <% end %>
+        </div>
+        <br><br><br><br><br><br>
+        <%= f.label :ボトムス %>
+        <%= f.collection_select :itemid3, @item3, :name, :name, include_blank: "選択して下さい" %><br>
+        <%= f.label :色 %>
         <%= f.text_field :color3, :size => 100 %><br>
 
-        <%= f.label :itemid4 %>
-        <%= f.text_field :itemid4, :size => 100 %><br>
-        <%= f.label :color4 %>
+        <%#= 足 %>
+        <%#= サンプル表示 %>
+        <div class="templates-container">
+            <% @item4.each do |t| %>
+                <div class="template">
+                    <%= image_tag t.image_url, size: "100x100" if t.image? %>
+                    <%= t.name %>
+                </div>
+            <% end %>
+        </div>
+        <br><br><br><br><br><br>
+        <%= f.label :シューズ %>
+        <%= f.collection_select :itemid4, @item4, :name, :name, include_blank: "選択して下さい" %><br>
+        <%= f.label :色 %>
         <%= f.text_field :color4, :size => 100 %><br>
 
-        <%= f.label :itemid5 %>
-        <%= f.text_field :itemid5, :size => 100 %><br>
-        <%= f.label :color5 %>
+        <%#= アクセ %>
+        <%#= サンプル表示 %>
+        <div class="templates-container">
+            <% @item5.each do |t| %>
+                <div class="template">
+                    <%= image_tag t.image_url, size: "100x100" if t.image? %>
+                    <%= t.name %>
+                </div>
+            <% end %>
+        </div>
+        <br><br><br><br><br><br>
+        <%= f.label :アクセ %>
+        <%= f.collection_select :itemid5, @item5, :name, :name, include_blank: "選択して下さい" %><br>
+        <%= f.label :色 %>
         <%= f.text_field :color5, :size => 100 %><br>
         
         <%#= f.submitの遷移先はcreateアクション %>

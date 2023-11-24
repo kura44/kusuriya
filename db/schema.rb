@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2023_11_18_091748) do
   create_table "templates", force: :cascade do |t|
     t.string "name"
     t.string "image"
-    t.integer "template_id"
+    t.string "template_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

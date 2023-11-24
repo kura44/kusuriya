@@ -1,6 +1,3 @@
-<h3>テンプレート投稿 templatess/show.html.erb new_template_path</h3>
-<h1>ここでテンプレートを記録する</h1>
-
 <%= form_for @template do |f| %>
     <div class="field">
         <%= f.label :name %>
@@ -10,5 +7,5 @@
         <%= f.label :image %>
         <%= f.file_field :image %>
     </div>
-    <%= f.submit "作成する" %>
+    <%= f.submit "編集する" %>
 <% end %>

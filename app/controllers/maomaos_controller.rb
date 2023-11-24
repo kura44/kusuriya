@@ -10,6 +10,12 @@ class MaomaosController < ApplicationController
     
     def new
         @maomao = Maomao.new
+        #Templateテーブル情報を持ってくる
+        @item1 = Template.where(template_id: "hair")
+        @item2 = Template.where(template_id: "tops")
+        @item3 = Template.where(template_id: "bottoms")
+        @item4 = Template.where(template_id: "shoes")
+        @item5 = Template.where(template_id: "acce")
     end
     
     def create
@@ -27,6 +33,11 @@ class MaomaosController < ApplicationController
     
     def show
         @maomao = Maomao.find(params[:id])
+        @item1 = Template.find_by(name: @maomao.itemid1)
+        @item2 = Template.find_by(name: @maomao.itemid2)
+        @item3 = Template.find_by(name: @maomao.itemid3)
+        @item4 = Template.find_by(name: @maomao.itemid4)
+        @item5 = Template.find_by(name: @maomao.itemid5)
     end
     
     def edit

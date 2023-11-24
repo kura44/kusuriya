@@ -5,7 +5,8 @@
 <p>プロフィール : <%= @user.profile %></p>
 
 <% if current_user.admin? %>
-        <%= link_to "管理者権限", templates_path %>
+        <%= link_to "テンプレート投稿", templates_path %>
+        <%= link_to "管理者権限", users_path(@user) %>
 <% end %>
 
 <% if current_user.id == @user.id %>

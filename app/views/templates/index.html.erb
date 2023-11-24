@@ -5,7 +5,10 @@
     <% @templates.each do |t| %>
         <div class="template">
             <%= t.name %>
-            <%= image_tag t.image_url, size: "250x200" if t.image? %>
+            <%= t.template_id %>
+            <%= image_tag t.image_url, size: "100x100" if t.image? %>
+            <%= link_to "編集する", edit_template_path(t.id) %>
+            <%= button_to "削除する", template_path(t.id), method: :delete %>
         </div>
     <% end %>
 </div>

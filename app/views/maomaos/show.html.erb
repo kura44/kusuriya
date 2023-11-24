@@ -2,20 +2,13 @@
 <h1>ここにでっかく表示する</h1>
 
 <div class="maomao">
-    <%= @maomao.user.email %>
-    <%= @maomao.userid %>
-    <%= @maomao.postid %>
-    <%= @maomao.itemid1 %>
-    <%= @maomao.color1 %>
-    <%= @maomao.itemid2 %>
-    <%= @maomao.color2 %>
-    <%= @maomao.itemid3 %>
-    <%= @maomao.color3 %>
-    <%= @maomao.itemid4 %>
-    <%= @maomao.color4 %>
-    <%= @maomao.itemid5 %>
-    <%= @maomao.color5 %>
-    <%= @maomao.user_id %>
+    <%#= @maomao.user.email %>
+    <%= image_tag @item1.image_url, size: "100x100" %>
+    <%= image_tag @item2.image_url, size: "100x100" %>
+    <%= image_tag @item3.image_url, size: "100x100" %>
+    <%= image_tag @item4.image_url, size: "100x100" %>
+    <%= image_tag @item5.image_url, size: "100x100" %>
+    <%#= @maomao.user_id %>
 
     <% if current_user.id == @maomao.user_id %>
                 <%= link_to "編集", edit_maomao_path(@maomao) %>
@@ -25,15 +18,15 @@
     <% if user_signed_in? %>
         <% if current_user.already_liked?(@maomao) %>
             <%= button_to maomao_like_path(@maomao), method: :delete do %>
-                <i class="fas fa-heart fa-1x" style="color:red;"></i><%= @maomao.likes.count %>
+                <i class="fas fa-heart fa-2x" style="color:red;"></i><%= @maomao.likes.count %>
             <% end %>
         <% else %>
             <%= button_to maomao_likes_path(@maomao), method: :post do %>
-                <i class="fas fa-heart fa-1x" style="color:red;"></i><%= @maomao.likes.count %>
+                <i class="fas fa-heart fa-2x" style="color:red;"></i><%= @maomao.likes.count %>
             <% end %>
         <% end %>
     <% else %>
-        <i class="fas fa-heart fa-1x" style="color:red;"></i><%= @maomao.likes.count %>
+        <i class="fas fa-heart fa-2x" style="color:red;"></i><%= @maomao.likes.count %>
     <% end %>
 
     <%= link_to "ユーザー情報", user_path(@maomao.user_id) %>
