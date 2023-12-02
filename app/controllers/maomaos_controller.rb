@@ -3,7 +3,14 @@ class MaomaosController < ApplicationController
     before_action :authenticate_user!, only: [:create]
     
     def index
-        @maomaos = Maomao.all
+        if params[:search] == nil
+            @maomaos= Maomao.all
+        elsif params[:search] == ''
+            @maomaos= Maomao.all
+        else
+            #部分検索
+            @maomaos = Maomao.where("itemid2 LIKE ? ",'%' + params[:search] + '%')
+        end
         #1ページあたりの表示する投稿の数
         @maomaos = @maomaos.page(params[:page]).per(5)
     end

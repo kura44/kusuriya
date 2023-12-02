@@ -9,7 +9,13 @@ Rails.application.routes.draw do
   
   root 'welcomes#index'
 
-  resources :users, only: [:show, :index] 
+  resources :users, only: [:show, :index] do
+    member do
+      get :following, :followers
+    end
+  end
+
+  resources :relationships, only: [:create, :destroy]
 
   resources :maomaos do
     resources :likes, only: [:create, :destroy]

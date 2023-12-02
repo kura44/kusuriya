@@ -5,8 +5,13 @@
     <div class="field">
         <%= f.label :name %>
         <%= f.text_field :name, :size => 140 %><br>
-        <%= f.label :template_id %>
-        <%= f.text_field :template_id, :size => 140 %><br>
+        <%= f.label :種類 %>
+        <%= f.select :template_id, 
+            [["hair", "hair"], 
+            ["tops", "tops"], 
+            ["bottoms", "bottoms"],
+            ["shoes", "shoes"],
+            ["acce", "acce"]], include_blank: "選択して下さい" %><br>
         <%= f.label :image %>
         <%= f.file_field :image %>
     </div>

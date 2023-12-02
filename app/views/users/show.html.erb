@@ -1,3 +1,8 @@
+
+<%= render 'follow_form' %>
+<%= render 'stats' %>
+
+
 <h3>プロフィール users/show.html.erb user_path</h3>
 <h1>プロフィール画面、マイページも兼用</h1>
 
@@ -10,8 +15,8 @@
 <% end %>
 
 <% if current_user.id == @user.id %>
-    <p>メールアドレス : <%= @user.email %></p>
-    <%= link_to "編集", edit_user_registration_path %>
+        <p>メールアドレス : <%= @user.email %></p>
+        <%= link_to "編集", edit_user_registration_path %>
 <% end %>
 
 <h3>ユーザーの投稿一覧</h3>
