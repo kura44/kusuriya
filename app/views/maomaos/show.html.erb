@@ -3,11 +3,21 @@
 
 <div class="maomao">
     <%#= @maomao.user.email %>
-    <%= image_tag @item1.image_url, size: "100x100" %>
-    <%= image_tag @item2.image_url, size: "100x100" %>
-    <%= image_tag @item3.image_url, size: "100x100" %>
-    <%= image_tag @item4.image_url, size: "100x100" %>
-    <%= image_tag @item5.image_url, size: "100x100" %>
+    <div style="background-color:<%= @maomao.color1 %>">
+        <%= image_tag @item1.image_url, size: "100x100" %>
+    </div>
+    <div style="background-color:<%= @maomao.color2 %>">
+        <%= image_tag @item2.image_url, size: "100x100" %>
+    </div>
+    <div style="background-color:<%= @maomao.color3 %>">
+        <%= image_tag @item3.image_url, size: "100x100" %>
+    </div>
+    <div style="background-color:<%= @maomao.color4 %>">
+        <%= image_tag @item4.image_url, size: "100x100" %>
+    </div>
+    <div style="background-color:<%= @maomao.color5 %>">
+        <%= image_tag @item5.image_url, size: "100x100" %>
+    </div>
     <%#= @maomao.user_id %>
 
     <% if current_user.id == @maomao.user_id %>

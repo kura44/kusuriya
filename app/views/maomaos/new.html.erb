@@ -19,12 +19,12 @@
                 </div>
             <% end %>
         </div>
-        <br><br><br><br><br><br>
+        <br><br><br><br><br><br><br>
         <%= f.label :ヘアアクセサリー %>
         <%#= f.select :itemid1, options_for_select(@templates.map{|c|[c[:name], c[:id]]}), {}, {} %>
-        <%= f.collection_select :itemid1, @item1, :name, :name, include_blank: "選択して下さい" %><br>
+        <%= f.collection_select :itemid1, @item1, :name, :name, include_blank: "選択して下さい" %>
         <%= f.label :色 %>
-        <%= f.text_field :color1, :size => 100 %><br>
+        <%= f.color_field :color1, :size => 100 %><br>
 
         <%#= 上 %>
         <%#= サンプル表示 %>
@@ -38,9 +38,9 @@
         </div>
         <br><br><br><br><br><br>
         <%= f.label :トップス %>
-        <%= f.collection_select :itemid2, @item2, :name, :name, include_blank: "選択して下さい" %><br>
+        <%= f.collection_select :itemid2, @item2, :name, :name, include_blank: "選択して下さい" %>
         <%= f.label :色 %>
-        <%= f.text_field :color2, :size => 100 %><br>
+        <%= f.color_field :color2, :size => 100 %><br>
 
         <%#= 下 %>
         <%#= サンプル表示 %>
@@ -54,9 +54,9 @@
         </div>
         <br><br><br><br><br><br>
         <%= f.label :ボトムス %>
-        <%= f.collection_select :itemid3, @item3, :name, :name, include_blank: "選択して下さい" %><br>
+        <%= f.collection_select :itemid3, @item3, :name, :name, include_blank: "選択して下さい" %>
         <%= f.label :色 %>
-        <%= f.text_field :color3, :size => 100 %><br>
+        <%= f.color_field :color3, :size => 100 %><br>
 
         <%#= 足 %>
         <%#= サンプル表示 %>
@@ -70,9 +70,9 @@
         </div>
         <br><br><br><br><br><br>
         <%= f.label :シューズ %>
-        <%= f.collection_select :itemid4, @item4, :name, :name, include_blank: "選択して下さい" %><br>
+        <%= f.collection_select :itemid4, @item4, :name, :name, include_blank: "選択して下さい" %>
         <%= f.label :色 %>
-        <%= f.text_field :color4, :size => 100 %><br>
+        <%= f.color_field :color4, :size => 100 %><br>
 
         <%#= アクセ %>
         <%#= サンプル表示 %>
@@ -86,9 +86,9 @@
         </div>
         <br><br><br><br><br><br>
         <%= f.label :アクセ %>
-        <%= f.collection_select :itemid5, @item5, :name, :name, include_blank: "選択して下さい" %><br>
+        <%= f.collection_select :itemid5, @item5, :name, :name, include_blank: "選択して下さい" %>
         <%= f.label :色 %>
-        <%= f.text_field :color5, :size => 100 %><br>
+        <%= f.color_field :color5, :size => 100 %><br>
         
         <%#= f.submitの遷移先はcreateアクション %>
         <%= f.submit "投稿" %>

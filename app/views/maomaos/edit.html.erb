@@ -2,17 +2,88 @@
 <h1>投稿内容をいじれるように</h1>
 
 <%= form_for @maomao do |f| %>
-    <%= f.number_field :userid, :size => 30 %>
-    <%= f.number_field :postid, :size => 30 %>
-    <%= f.text_field :itemid1, :size => 100 %>
-    <%= f.text_field :color1, :size => 100 %>
-    <%= f.text_field :itemid2, :size => 100 %>
-    <%= f.text_field :color2, :size => 100 %>
-    <%= f.text_field :itemid3, :size => 100 %>
-    <%= f.text_field :color3, :size => 100 %>
-    <%= f.text_field :itemid4, :size => 100 %>
-    <%= f.text_field :color4, :size => 100 %>
-    <%= f.text_field :itemid5, :size => 100 %>
-    <%= f.text_field :color5, :size => 100 %>
-    <%= f.submit "編集" %>
+    <div class="field">
+        <%#= 頭 %>
+        <%#= サンプル表示 %>
+        <div class="templates-container">
+            <% @item1.each do |t| %>
+                <div class="template">
+                    <%= image_tag t.image_url, size: "100x100" if t.image? %>
+                    <%= t.name %>
+                </div>
+            <% end %>
+        </div>
+        <%= f.label :ヘアアクセサリー %>
+        <%#= f.select :itemid1, options_for_select(@templates.map{|c|[c[:name], c[:id]]}), {}, {} %>
+        <%= f.collection_select :itemid1, @item1, :name, :name, include_blank: "選択して下さい" %>
+        <%= f.label :色 %>
+        <%= f.color_field :color1, :size => 100 %><br>
+
+        <%#= 上 %>
+        <%#= サンプル表示 %>
+        <div class="templates-container">
+            <% @item2.each do |t| %>
+                <div class="template">
+                    <%= image_tag t.image_url, size: "100x100" if t.image? %>
+                    <%= t.name %>
+                </div>
+            <% end %>
+        </div>
+        <br><br><br><br><br><br>
+        <%= f.label :トップス %>
+        <%= f.collection_select :itemid2, @item2, :name, :name, include_blank: "選択して下さい" %>
+        <%= f.label :色 %>
+        <%= f.color_field :color2, :size => 100 %><br>
+
+        <%#= 下 %>
+        <%#= サンプル表示 %>
+        <div class="templates-container">
+            <% @item3.each do |t| %>
+                <div class="template">
+                    <%= image_tag t.image_url, size: "100x100" if t.image? %>
+                    <%= t.name %>
+                </div>
+            <% end %>
+        </div>
+        <br><br><br><br><br><br>
+        <%= f.label :ボトムス %>
+        <%= f.collection_select :itemid3, @item3, :name, :name, include_blank: "選択して下さい" %>
+        <%= f.label :色 %>
+        <%= f.color_field :color3, :size => 100 %><br>
+
+        <%#= 足 %>
+        <%#= サンプル表示 %>
+        <div class="templates-container">
+            <% @item4.each do |t| %>
+                <div class="template">
+                    <%= image_tag t.image_url, size: "100x100" if t.image? %>
+                    <%= t.name %>
+                </div>
+            <% end %>
+        </div>
+        <br><br><br><br><br><br>
+        <%= f.label :シューズ %>
+        <%= f.collection_select :itemid4, @item4, :name, :name, include_blank: "選択して下さい" %>
+        <%= f.label :色 %>
+        <%= f.color_field :color4, :size => 100 %><br>
+
+        <%#= アクセ %>
+        <%#= サンプル表示 %>
+        <div class="templates-container">
+            <% @item5.each do |t| %>
+                <div class="template">
+                    <%= image_tag t.image_url, size: "100x100" if t.image? %>
+                    <%= t.name %>
+                </div>
+            <% end %>
+        </div>
+        <br><br><br><br><br><br>
+        <%= f.label :アクセ %>
+        <%= f.collection_select :itemid5, @item5, :name, :name, include_blank: "選択して下さい" %>
+        <%= f.label :色 %>
+        <%= f.color_field :color5, :size => 100 %><br>
+        
+        <%#= f.submitの遷移先はcreateアクション %>
+        <%= f.submit "投稿" %>
+    </div>
 <% end %>

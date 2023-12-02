@@ -17,7 +17,7 @@
     <div class="header-name">
       <ul>
           <li><%= image_tag "logo.PNG" ,class:"header_logo"%></li>
-          <li><p>服選び</p></li>
+          <li><p><%= link_to '服選び', root_path %></p></li>
           <% if user_signed_in? %>
               <li><h5>ログイン中のユーザー<%= current_user.name %></h5></li>
           <% end %>

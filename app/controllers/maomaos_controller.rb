@@ -49,6 +49,12 @@ class MaomaosController < ApplicationController
     
     def edit
         @maomao = Maomao.find(params[:id])
+        #Templateテーブル情報を持ってくる
+        @item1 = Template.where(template_id: "hair")
+        @item2 = Template.where(template_id: "tops")
+        @item3 = Template.where(template_id: "bottoms")
+        @item4 = Template.where(template_id: "shoes")
+        @item5 = Template.where(template_id: "acce")
     end
     
     def update
