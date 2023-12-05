@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>Kusuriya</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -19,8 +20,9 @@
           <li><%= image_tag "logo.PNG" ,class:"header_logo"%></li>
           <li><p><%= link_to '服選び', root_path %></p></li>
           <% if user_signed_in? %>
-              <li><h5>ログイン中のユーザー<%= current_user.name %></h5></li>
+              <li><div class="login">ログイン中のユーザー<%= current_user.name %></div></li>
           <% end %>
+      </ul>
     </div>
     <div class="header-list">
       <ul>

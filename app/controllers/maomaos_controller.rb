@@ -34,7 +34,7 @@ class MaomaosController < ApplicationController
             redirect_to :action => "index"
         else
             #nemアクションを実行
-            redirect_to :action => "new"
+            render action => "new"
         end
     end
     

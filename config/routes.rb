@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   
   root 'welcomes#index'
 
-  resources :users, only: [:show, :index] do
+  resources :users, only: [:show, :index, :edit,:update] do
     member do
       get :following, :followers
     end
@@ -22,5 +22,8 @@ Rails.application.routes.draw do
   end
 
   resources :templates
+
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create,:show]
 
 end

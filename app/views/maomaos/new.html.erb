@@ -11,15 +11,17 @@
 
         <%#= 頭 %>
         <%#= サンプル表示 %>
+        <div class="wrapper">
         <div class="templates-container">
             <% @item1.each do |t| %>
                 <div class="template">
                     <%= image_tag t.image_url, size: "100x100" if t.image? %>
-                    <%= t.name %>
                 </div>
             <% end %>
         </div>
-        <br><br><br><br><br><br><br>
+        </div>
+
+        
         <%= f.label :ヘアアクセサリー %>
         <%#= f.select :itemid1, options_for_select(@templates.map{|c|[c[:name], c[:id]]}), {}, {} %>
         <%= f.collection_select :itemid1, @item1, :name, :name, include_blank: "選択して下さい" %>

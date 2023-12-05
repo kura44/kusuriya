@@ -2,13 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.templates_container {
+.wrapper {
     display: flex;
-    align-items: center;
+    overflow-x: scroll;
 }
+
+.templates_container {
+    height: 120px;
+    width: 120px;
+    border: dotted;
+}
+
     .template {
-        float: left;
-        padding: 10px 10px;
-        text-align: center;
-    }
-    
+        height: 100px;
+        width: 100px;
+        margin: 10px;
+}
+.template:not(:last-child) {
+    margin-right: 10px;
+}
